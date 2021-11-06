@@ -76,7 +76,7 @@
         <li class="nav-item dropdown">
           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="usuariolog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="cart.html">Mi carrito<i class="fas fa-shopping-cart"></i><span id="numeroProductos" class="badge badge-danger rounded-circle">2</span></a>
+          <a class="dropdown-item" href="cart.html">Mi carrito<i class="fas fa-shopping-cart"></i><span id="numeroProductos" class="badge badge-danger rounded-circle">3</span></a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil <i class="far fa-address-card"></i></a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="index.html" onclick="cerrarSesion()">Cerrar Sesion <i class="fas fa-times-circle"></i></a>
@@ -111,7 +111,9 @@
                               <th scope="col" class="text-right d-none d-md-block" width="200"></th>
                           </tr>
                       </thead>
+                      
                       </tbody>
+                      
                   </table>
               </div>
           </div>
@@ -143,19 +145,27 @@
             <input type="number" min="1" class="form-control" id="validationCustom05" required>
           </div>
 
+          <hr style="width:95%;">
+
           <div class="col-md-5">
-            <label for="validationCustom06" class="form-label">Seleccionar metodo de pago</label>
-            <select class="form-select" id="validationCustom06" required>
-              <option selected disabled value="">Seleccionar...</option>
-              <option value="1">Standard</option>
-              <option value="2">Express</option>
-              <option value="3">Premium</option>
-            </select>
+            <strong>Seleccionar Tipo de Envío:</strong>
+            <div class="form-check mb-3">
+              <input title="12 a 15 días, Costo de 5% sobre el subtotal." onclick="standard()" type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+              <label class="form-check-label" for="validationFormCheck2">Standard<i class="fas fa-shipping-fast"></i></label>
+            </div>
+            <div class="form-check mb-3">
+              <input title="5 a 8 días, Costo de 7% sobre el subtotal." onclick="express()" type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
+              <label class="form-check-label" for="validationFormCheck3">Express<i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i></label>
+            </div>
+            <div class="form-check mb-3">
+              <input title="2 a 5 días, Costo de 15% sobre el subtotal." onclick="premium()" type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
+              <label class="form-check-label" for="validationFormCheck3">Premium<i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i></label>
+            </div>
             </div>
           
           <div class="col-12">
             <button class="btn btn-primary" type="submit">Confirmar</button>
-            <button class="btn btn-danger" type="submit">Cancelar</button>
+            <button class="btn btn-danger" type="submit" onclick="borrarCampos()">Cancelar</button>
           </div>
         </form>
       </div>
@@ -173,18 +183,7 @@
                   <div class="input-group"> <input type="text" class="form-control coupon"  placeholder="Ingresá el código"> <span class="input-group-append"> <button class="btn btn-primary btn-apply coupon">Aplicar</button> </span> </div>
               </div>
               <hr>
-            
-
-                
-                
-                <!-- <a id="standard" title="12 a 15 días, Costo de 5% sobre el subtotal." onclick="standard()" class="btn btn-out btn-info btn-square btn-main mt-2" data-abc="true">Standard<i class="fas fa-shipping-fast"></i></a> 
-                
-                <a id="express" title="5 a 8 días, Costo de 7% sobre el subtotal." onclick="express()" class="btn btn-out btn-warning btn-square btn-main mt-2" data-abc="true">Express<i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i></a>
-
-                <a id="premium" title="2 a 5 días, Costo de 15% sobre el subtotal." onclick="premium()" class="btn btn-out btn-danger btn-square btn-main mt-2" data-abc="true">Premium<i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i></a>  -->
-                
-            
-          </form>
+        </form>
           
           
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -208,31 +207,31 @@
                             
                             <div class="row justify-content-center mrow">
                               <div class="col-12">
-                                <p class="metodo"><input type="radio" name="metodo"> <img src="img/credito.png" width="35px" height="35px"/>Tarjeta de Credito  <input type="radio" name="metodo"> <img src="img/transferencia.png" width="35px" height="35px"/>Transferencia Bancaria</p>
+                                <p class="metodo"><input type="radio" name="metodo" id="tarjeta" onclick="creditCard()" checked> <img src="img/credito.png" width="35px" height="35px"/>Tarjeta de Credito  <input type="radio" name="metodo" id="cuenta" onclick="bankAccount()"> <img src="img/transferencia.png" width="35px" height="35px"/>Transferencia Bancaria</p>
                               </div>
                             </div>
-                            <form class="form-card">
+                            <form class="form-card needs-validation" novalidate>
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="form-group"> <input type="number" class="form-control p-0" id="number" required><label class="form-control-placeholder p-0" for="number">Numero de Tarjeta</label> </div>
+                                        <div class="form-group"> <input type="number" class="form-control p-0" id="cardNumber" required><label for="validationCustom01" class="form-label">Numero de Tarjeta</label> </div>
                                     </div>
                                 </div>
                                 
                                 <div class="row">
                                    
                                     <div class="col-sm-4 col-12">
-                                        <div class="form-group"> <input type="number" class="form-control p-0" id="expdate" required><label class="form-control-placeholder p-0" for="expdate">Vencimiento</label> </div>
+                                        <div class="form-group"> <input type="number" class="form-control p-0" id="expdate" required><label for="validationCustom02" class="form-label">Vencimiento</label> </div>
                                     </div>
                                     <div class="col-sm-4 col-12">
-                                        <div class="form-group"> <input type="password" class="form-control p-0" id="passw" required><label class="form-control-placeholder p-0" for="passw">CVV</label> </div>
+                                        <div class="form-group"> <input type="password" class="form-control p-0" id="passw" required><label for="validationCustom03" class="form-label">CVV</label> </div>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
                                   <div class="col-sm-4 col-12">
-                                    <label for="banco">Banco:</label>
-                                    <select name="banco" id="banco">
-                                      <option selected="true" disabled="disabled">Seleccione su banco</option>
+                                    <label for="validationCustom06" class="form-label">Banco:</label>
+                                     <select class="form-select" id="banco" required> 
+                                      <option selected disabled value="">Seleccionar...</option>
                                       <option value="BBVA">BBVA</option>
                                       <option value="Itau">Itau</option>
                                       <option value="Santander">Santander</option>
@@ -243,7 +242,7 @@
                                   <br>
                                 <div class="row">
                                   <div class="col-12">
-                                      <div class="form-group"> <input type="number" class="form-control p-0" id="account" required><label class="form-control-placeholder p-0" for="number">Numero de Cuenta</label> </div>
+                                      <div class="form-group"> <input type="number" class="form-control p-0" id="accountNumber" required><label for="validationCustom04" class="form-label">Numero de Cuenta</label> </div>
                                   </div>
                                 </div>
                                 
@@ -256,7 +255,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-2">
-                                    <div class="col-sm-12"> <button type="button" class="btn btn-primary btn-block">Confirmar</button> </div>
+                                    <div class="col-sm-12"> <button class="btn btn-primary" type="submit">Confirmar</button> </div>
                                 </div>
                             </form>
                         </div>
@@ -301,7 +300,7 @@
               <dt id="precioFinal">Precio Final: $</dt>
               <dd class="text-right text-dark b ml-3"><strong></strong></dd>
           </dl>
-          <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Finalizar compra </a> 
+          <hr> <button class="btn btn-out btn-primary btn-square btn-main" type="submit" onclick="finalizarCompra()"> Finalizar compra </button> 
                <a href="categories.html" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continuar comprando</a>
       </div>
   </div>

@@ -75,7 +75,7 @@ function mostrarCarrito(array) {
 
 
 
-/*-----No es para esta entrega-----*/
+
   function standard(){
       document.getElementById("tipoEnvio").innerHTML = "Standard";
       valor = document.getElementById("precioSubTotal").innerHTML;
@@ -105,7 +105,7 @@ function mostrarCarrito(array) {
       document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal; 
       document.getElementById("totalModal").innerHTML =  `$`+precioFinal;  
      }
-/*--------------------------------*/
+
 
 
 
@@ -126,9 +126,8 @@ function tiempoReal(){
         document.getElementById("numeroProductos").innerHTML = cantidadItems; //Se pega en el dropDownMenu
         
         
-/*---------------No es para esta entrega--------------------*/
+
         let envio = document.getElementById("validationCustom06").value;
-       
        
         if (envio == 1){
             standard();
@@ -137,11 +136,11 @@ function tiempoReal(){
         }   if (envio == 3){
                     premium();
         }
-/*----------------------------------------------------------*/
+
 
 }
 
-/*---------------No es para esta entrega--------------------*/
+/*---------------Desafiate sin terminar--------------------*/
 function deleteRow(r)
     {
     var fila = r.parentNode.parentNode.rowIndex;
@@ -150,6 +149,41 @@ function deleteRow(r)
 /*----------------------------------------------------------*/
 
 
+function borrarCampos(){
+    document.getElementById("validationCustom01").value = "";
+    document.getElementById("validationCustom02").value = "";
+    document.getElementById("validationCustom03").value = "";
+    document.getElementById("validationCustom04").value = "";
+    document.getElementById("validationCustom05").value = "";
+    document.getElementById("validationCustom06").value = "";
+}
+
+// function finalizarCompra(){
+    
+
+// } 
+
+
+/*------------------------------------*/
+
+function creditCard()
+{
+	document.getElementById("accountNumber").disabled=true;
+	document.getElementById("banco").disabled=true;
+    document.getElementById("passw").disabled=false;
+	document.getElementById("expdate").disabled=false;
+	document.getElementById("cardNumber").disabled=false;
+	
+}
+
+function bankAccount()
+{
+	document.getElementById("passw").disabled=true;
+	document.getElementById("expdate").disabled=true;
+	document.getElementById("cardNumber").disabled=true;
+	document.getElementById("accountNumber").disabled=false;
+	document.getElementById("banco").disabled=false;
+}
 
 
 

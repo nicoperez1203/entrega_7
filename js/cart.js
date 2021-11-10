@@ -77,33 +77,36 @@ function mostrarCarrito(array) {
 
 
   function standard(){
-      document.getElementById("tipoEnvio").innerHTML = "Standard";
+      document.getElementById("tipoEnvio").innerHTML = `<font color="blue"> Standard</font>`;
       valor = document.getElementById("precioSubTotal").innerHTML;
       nuevoValor = (valor * 5) / 100;
       document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
       precioFinal = parseFloat(valor) + nuevoValor;
       document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
       document.getElementById("totalModal").innerHTML = `$` +precioFinal;
+      document.getElementById("precioFinalDetalles").innerHTML = `<font color="blue">$ ${precioFinal}</font>`;
     }
     
   function express(){
-      document.getElementById("tipoEnvio").innerHTML = "Express";
+      document.getElementById("tipoEnvio").innerHTML = `<font color="blue"> Express</font>`;
       valor = document.getElementById("precioSubTotal").innerHTML;
       nuevoValor = (valor * 7) / 100;
       document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
       precioFinal = parseFloat(valor) + nuevoValor;
       document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
       document.getElementById("totalModal").innerHTML = `$` +precioFinal;
+      document.getElementById("precioFinalDetalles").innerHTML = `<font color="blue">$ ${precioFinal}</font>`;
     }
 
   function premium(){
-      document.getElementById("tipoEnvio").innerHTML = "Premium";
+      document.getElementById("tipoEnvio").innerHTML = `<font color="blue"> Premium</font>`;
       valor = document.getElementById("precioSubTotal").innerHTML;
       nuevoValor = (valor * 15) / 100;
       document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
       precioFinal = parseFloat(valor) + nuevoValor;
       document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal; 
       document.getElementById("totalModal").innerHTML =  `$`+precioFinal;  
+      document.getElementById("precioFinalDetalles").innerHTML = `<font color="blue">$ ${precioFinal}</font>`;
      }
 
 
@@ -124,6 +127,7 @@ function tiempoReal(){
         document.getElementById("precioSubTotal").innerHTML = subsub; 
         document.getElementById("cantidadItems").innerHTML = cantidadItems;
         document.getElementById("numeroProductos").innerHTML = cantidadItems; //Se pega en el dropDownMenu
+        document.getElementById("cantidadItemsFinal").innerHTML = `<font color="blue">${cantidadItems}</font>`;
         
         
 
@@ -158,13 +162,7 @@ function borrarCampos(){
     document.getElementById("validationCustom06").value = "";
 }
 
-// function finalizarCompra(){
-    
 
-// } 
-
-
-/*------------------------------------*/
 
 function creditCard()
 {
@@ -173,6 +171,7 @@ function creditCard()
     document.getElementById("passw").disabled=false;
 	document.getElementById("expdate").disabled=false;
 	document.getElementById("cardNumber").disabled=false;
+    document.getElementById("metodoDePagoFinal").innerHTML = `<font color="blue"> Tarjeta de Credito</font>`;
 	
 }
 
@@ -183,7 +182,10 @@ function bankAccount()
 	document.getElementById("cardNumber").disabled=true;
 	document.getElementById("accountNumber").disabled=false;
 	document.getElementById("banco").disabled=false;
+    document.getElementById("metodoDePagoFinal").innerHTML = `<font color="blue"> Cuenta Bancaria</font>`;
 }
+
+
 
 
 

@@ -137,7 +137,7 @@
             <input type="text" class="form-control" id="validationCustom03" required>
           </div>
           <div class="col-md-3">
-            <label for="validationCustom04" class="form-label">Calle</label>
+            <label for="validationCustom04" class="form-label">Esquina</label>
             <input type="text" class="form-control" id="validationCustom04" required>
           </div>
           <div class="col-md-2">
@@ -150,12 +150,12 @@
           <div class="col-md-5">
             <strong>Seleccionar Tipo de Envío:</strong>
             <div class="form-check mb-3">
-              <input title="12 a 15 días, Costo de 5% sobre el subtotal." onclick="standard()" type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
-              <label class="form-check-label" for="validationFormCheck2">Standard<i class="fas fa-shipping-fast"></i></label>
+              <input title="12 a 15 días, Costo de 5% sobre el subtotal." onclick="standard()" type="radio" class="form-check-input" id="validationFormCheck1" name="radio-stacked" required>
+              <label class="form-check-label" for="validationFormCheck1">Standard<i class="fas fa-shipping-fast"></i></label>
             </div>
             <div class="form-check mb-3">
-              <input title="5 a 8 días, Costo de 7% sobre el subtotal." onclick="express()" type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
-              <label class="form-check-label" for="validationFormCheck3">Express<i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i></label>
+              <input title="5 a 8 días, Costo de 7% sobre el subtotal." onclick="express()" type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+              <label class="form-check-label" for="validationFormCheck2">Express<i class="fas fa-shipping-fast"></i><i class="fas fa-shipping-fast"></i></label>
             </div>
             <div class="form-check mb-3">
               <input title="2 a 5 días, Costo de 15% sobre el subtotal." onclick="premium()" type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
@@ -164,13 +164,37 @@
             </div>
           
           <div class="col-12">
-            <button class="btn btn-primary" type="submit">Confirmar</button>
-            <button class="btn btn-danger" type="submit" onclick="borrarCampos()">Cancelar</button>
+            <button class="btn btn-out btn btn-danger btn-square btn-main mt-2" type="submit" onclick="borrarCampos()">Cancelar</button>
+            <button class="btn btn-out btn-primary btn-square btn-main mt-2" type="submit" onclick="finalizarCompra()"> Finalizar compra </button> 
+            <a href="categories.html" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continuar comprando</a>
           </div>
         </form>
       </div>
         </div>
 <!------------------------------------------------------------------------------------------------------------------------------------------->
+
+ 
+    
+
+ 
+
+  <div class="card" id="detallesFinales">
+      <div class="card-body">
+        <p>Datos finales de su compra:</p>
+          <dl class="dlist-align">
+            <dt>Forma de pago: <span id="metodoDePagoFinal" ></span></dt>
+            <dd class="text-right ml-3"></dd>
+          </dl>
+          <dl class="dlist-align">
+            <dt>Envio seleccionado: <span id="tipoEnvio"></span></dt>
+            <dd class="text-right ml-3"></dd>
+          </dl>
+          <dl class="dlist-align">
+            <dt>Precio Final: <span id="precioFinalDetalles"></span></dt>
+            <dd class="text-right text-dark b ml-3"><strong></strong></dd>
+          </dl>
+          </div>
+  </div>
 
 </aside>
       
@@ -255,7 +279,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-2">
-                                    <div class="col-sm-12"> <button class="btn btn-primary" type="submit">Confirmar</button> </div>
+                                    <div class="col-sm-12"> <button class="btn btn-primary">Confirmar</button></div>
                                 </div>
                             </form>
                         </div>
@@ -280,18 +304,14 @@
   <div class="card">
       <div class="card-body">
         <dl class="dlist-align">
-          <dt>Cantidad de items: <span id="cantidadItems" ></span></dt>
+          <dt>Cantidad de items: <span id="cantidadItems"></span></dt>
           <dd class="text-right ml-3"></dd>
       </dl>
         <dl class="dlist-align">
           <dt>Sub-Total: $<span id="precioSubTotal" ></span></dt>
           <dd class="text-right ml-3"></dd>
       </dl>
-          
-          <dl class="dlist-align">
-            <dt class="small text-muted">Envio seleccionado: <span id="tipoEnvio"></span></dt>
-            <dd class="text-right ml-3"></dd>
-        </dl>
+        
           <dl class="dlist-align">
               <dt id="costoEnvio">Costo de envío: $</dt>
               <dd class="text-right text-danger ml-3"></dd>
@@ -300,8 +320,8 @@
               <dt id="precioFinal">Precio Final: $</dt>
               <dd class="text-right text-dark b ml-3"><strong></strong></dd>
           </dl>
-          <hr> <button class="btn btn-out btn-primary btn-square btn-main" type="submit" onclick="finalizarCompra()"> Finalizar compra </button> 
-               <a href="categories.html" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continuar comprando</a>
+          <hr> 
+               <a href="#detallesFinales" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Detalles Finales</a>
       </div>
   </div>
   

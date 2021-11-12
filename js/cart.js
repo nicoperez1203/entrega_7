@@ -128,7 +128,8 @@ function tiempoReal(){
         document.getElementById("precioSubTotal").innerHTML = subsub; 
         document.getElementById("cantidadItems").innerHTML = cantidadItems;
         document.getElementById("numeroProductos").innerHTML = cantidadItems; //Se pega en el dropDownMenu
-        document.getElementById("cantidadItemsFinal").innerHTML = `<font color="blue">${cantidadItems}</font>`;
+        
+        
         
         
 
@@ -145,11 +146,12 @@ function tiempoReal(){
 
 }
 
-/*---------------Desafiate sin terminar--------------------*/
+/*---------------Desafiate--------------------*/
 function deleteRow(r)
     {
     var fila = r.parentNode.parentNode.rowIndex;
     document.getElementById("tablaProductos").deleteRow(fila);
+    tiempoReal()
     }
 /*----------------------------------------------------------*/
 
@@ -195,7 +197,7 @@ enviarForm.addEventListener("submit", function (event){
     event.preventDefault();
 })
 
-const finalForm = document.getElementById("formFinal"); //Evitar que se refresque la pagina al confirmar el formulario del modal
+const finalForm = document.getElementById("formFinal"); 
 finalForm.addEventListener("submit", function (event){
     event.preventDefault();
 })

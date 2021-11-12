@@ -195,6 +195,38 @@ enviarForm.addEventListener("submit", function (event){
     event.preventDefault();
 })
 
+const finalForm = document.getElementById("formFinal"); //Evitar que se refresque la pagina al confirmar el formulario del modal
+finalForm.addEventListener("submit", function (event){
+    event.preventDefault();
+})
+
+
+function finalizarCompra(){
+    
+    let nombre = document.getElementById("validationCustom01").value;
+    let pais = document.getElementById("validationCustom02").value;
+    let calle = document.getElementById("validationCustom03").value;
+    let esquina = document.getElementById("validationCustom04").value;
+    let cantidades = document.getElementById("cantidadItems").innerHTML;
+    let pago = document.getElementById("metodoDePagoFinal").innerHTML;
+    let envio = document.getElementById("tipoEnvio").innerHTML;
+
+    if (nombre != "" && pais != "" && calle != "" && esquina != "" && cantidades != "" 
+    && pago != "" && envio != ""){
+        Swal.fire(
+            'Compra realizada con exito',
+            '--',
+            'success'
+          )
+    }else{
+        Swal.fire(
+            'Faltan datos',
+            '--',
+            'error'
+          )
+    }
+}
+
 
 
 

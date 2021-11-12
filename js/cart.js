@@ -37,7 +37,7 @@ function mostrarCarrito(array) {
 
             let totalProducto = datoscarrito.unitCost * datoscarrito.count; //Costo total de cada producto
             subTotal += totalProducto; //Subtotal de productos sumados
-       {
+    {
 
             data +=
 
@@ -76,38 +76,39 @@ function mostrarCarrito(array) {
 
 
 
-  function standard(){
-      document.getElementById("tipoEnvio").innerHTML = `<font color="blue"> Standard</font>`;
-      valor = document.getElementById("precioSubTotal").innerHTML;
-      nuevoValor = (valor * 5) / 100;
-      document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
-      precioFinal = parseFloat(valor) + nuevoValor;
-      document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
-      document.getElementById("totalModal").innerHTML = `$` +precioFinal;
-      document.getElementById("precioFinalDetalles").innerHTML = `<font color="blue">$ ${precioFinal}</font>`;
+    function standard(){
+        document.getElementById("tipoEnvio").innerHTML = `<font color="blue"> Standard</font>`;
+        valor = document.getElementById("precioSubTotal").innerHTML;
+        nuevoValor = (valor * 5) / 100;
+        document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
+        precioFinal = parseFloat(valor) + nuevoValor;
+        document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
+        document.getElementById("totalModal").innerHTML = `$` +precioFinal;
+        document.getElementById("precioFinalDetalles").innerHTML = `<font color="blue">$ ${precioFinal}</font>`;
     }
     
-  function express(){
-      document.getElementById("tipoEnvio").innerHTML = `<font color="blue"> Express</font>`;
-      valor = document.getElementById("precioSubTotal").innerHTML;
-      nuevoValor = (valor * 7) / 100;
-      document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
-      precioFinal = parseFloat(valor) + nuevoValor;
-      document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
-      document.getElementById("totalModal").innerHTML = `$` +precioFinal;
-      document.getElementById("precioFinalDetalles").innerHTML = `<font color="blue">$ ${precioFinal}</font>`;
+  
+    function express(){
+        document.getElementById("tipoEnvio").innerHTML = `<font color="blue"> Express</font>`;
+        valor = document.getElementById("precioSubTotal").innerHTML;
+        nuevoValor = (valor * 7) / 100;
+        document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
+        precioFinal = parseFloat(valor) + nuevoValor;
+        document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
+        document.getElementById("totalModal").innerHTML = `$` +precioFinal;
+        document.getElementById("precioFinalDetalles").innerHTML = `<font color="blue">$ ${precioFinal}</font>`;
     }
 
-  function premium(){
-      document.getElementById("tipoEnvio").innerHTML = `<font color="blue"> Premium</font>`;
-      valor = document.getElementById("precioSubTotal").innerHTML;
-      nuevoValor = (valor * 15) / 100;
-      document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
-      precioFinal = parseFloat(valor) + nuevoValor;
-      document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal; 
-      document.getElementById("totalModal").innerHTML =  `$`+precioFinal;  
-      document.getElementById("precioFinalDetalles").innerHTML = `<font color="blue">$ ${precioFinal}</font>`;
-     }
+    function premium(){
+        document.getElementById("tipoEnvio").innerHTML = `<font color="blue"> Premium</font>`;
+        valor = document.getElementById("precioSubTotal").innerHTML;
+        nuevoValor = (valor * 15) / 100;
+        document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
+        precioFinal = parseFloat(valor) + nuevoValor;
+        document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal; 
+        document.getElementById("totalModal").innerHTML =  `$`+precioFinal;  
+        document.getElementById("precioFinalDetalles").innerHTML = `<font color="blue">$ ${precioFinal}</font>`;
+    }
 
 
 
@@ -172,8 +173,7 @@ function creditCard()
 	document.getElementById("expdate").disabled=false;
 	document.getElementById("cardNumber").disabled=false;
     document.getElementById("metodoDePagoFinal").innerHTML = `<font color="blue"> Tarjeta de Credito</font>`;
-	
-}
+    }
 
 function bankAccount()
 {
@@ -183,7 +183,23 @@ function bankAccount()
 	document.getElementById("accountNumber").disabled=false;
 	document.getElementById("banco").disabled=false;
     document.getElementById("metodoDePagoFinal").innerHTML = `<font color="blue"> Cuenta Bancaria</font>`;
-}
+    }
+
+
+
+
+
+
+const enviarForm = document.getElementById("formModal"); //Evitar que se refresque la pagina al confirmar el formulario del modal
+enviarForm.addEventListener("submit", function (event){
+    event.preventDefault();
+})
+
+
+
+
+
+
 
 
 

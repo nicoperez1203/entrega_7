@@ -144,9 +144,9 @@
             <label for="validationCustom05" class="form-label">Nº Puerta</label>
             <input type="number" min="1" class="form-control" id="validationCustom05" required>
           </div>
-
-          <hr style="width:95%;">
-
+          
+         <hr style="width:95%;">
+          
           <div class="col-md-5">
             <strong>Seleccionar Tipo de Envío:</strong>
             <div class="form-check mb-3">
@@ -220,7 +220,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Seleccione su metodo de pago</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"> 
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -234,7 +234,7 @@
                                 <p class="metodo"><input type="radio" name="metodo" id="tarjeta" onclick="creditCard()" checked> <img src="img/credito.png" width="35px" height="35px"/>Tarjeta de Credito  <input type="radio" name="metodo" id="cuenta" onclick="bankAccount()"> <img src="img/transferencia.png" width="35px" height="35px"/>Transferencia Bancaria</p>
                               </div>
                             </div>
-                            <form class="form-card needs-validation" novalidate>
+                            <form class="form-card needs-validation" novalidate id="formModal">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group"> <input type="number" class="form-control p-0" id="cardNumber" required><label for="validationCustom01" class="form-label">Numero de Tarjeta</label> </div>
@@ -279,7 +279,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-2">
-                                    <div class="col-sm-12"> <button class="btn btn-primary">Confirmar</button></div>
+                                    <div class="col-sm-12"> <button id="botonModal" type="submit" data-bs-dismiss="modal" class="btn btn-primary">Confirmar</button></div>
                                 </div>
                             </form>
                         </div>

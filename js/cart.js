@@ -76,12 +76,12 @@ function mostrarCarrito(array) {
 
 
 
-    function standard(){
-        document.getElementById("tipoEnvio").innerHTML = `<font color="blue"> Standard</font>`;
-        valor = document.getElementById("precioSubTotal").innerHTML;
-        nuevoValor = (valor * 5) / 100;
+    function standard(){  
+        document.getElementById("tipoEnvio").innerHTML = `<font color="blue"> Standard</font>`; 
+        valor = document.getElementById("precioSubTotal").innerHTML; //Recibimos el el valor de precioSubTotal, que es la suma de los subtotales.
+        nuevoValor = (valor * 5) / 100; //Se crea la variable nuevoValor, que calcula el porcentaje correspondiente al envio.
         document.getElementById("costoEnvio").innerHTML = `Costo de envío: $` +nuevoValor;
-        precioFinal = parseFloat(valor) + nuevoValor;
+        precioFinal = parseFloat(valor) + nuevoValor; //Y finalmente se suma el subtotal mas el costo de envio para obtener el precio final.
         document.getElementById("precioFinal").innerHTML = `Total: $` +precioFinal;
         document.getElementById("totalModal").innerHTML = `$` +precioFinal;
         document.getElementById("precioFinalDetalles").innerHTML = `<font color="blue">$ ${precioFinal}</font>`;
@@ -156,7 +156,7 @@ function deleteRow(r)
 /*----------------------------------------------------------*/
 
 
-function borrarCampos(){
+function borrarCampos(){ //Toma los valores de los inputs del formulario y los "borra", al igualarlos a vacío.
     document.getElementById("validationCustom01").value = "";
     document.getElementById("validationCustom02").value = "";
     document.getElementById("validationCustom03").value = "";
@@ -169,7 +169,7 @@ function borrarCampos(){
 
 function creditCard()
 {
-	document.getElementById("accountNumber").disabled=true;
+	document.getElementById("accountNumber").disabled=true;  //De esta forma inhabilito los inputs correspondientes para la opcion de tarjeta de credito
 	document.getElementById("banco").disabled=true;
     document.getElementById("passw").disabled=false;
 	document.getElementById("expdate").disabled=false;
@@ -177,7 +177,7 @@ function creditCard()
     document.getElementById("metodoDePagoFinal").innerHTML = `<font color="blue"> Tarjeta de Credito</font>`;
     }
 
-function bankAccount()
+function bankAccount() //Al igual que arriba pero para la funcion de cuenta bancaria.
 {
 	document.getElementById("passw").disabled=true;
 	document.getElementById("expdate").disabled=true;
@@ -203,7 +203,7 @@ finalForm.addEventListener("submit", function (event){
 })
 
 
-function finalizarCompra(){
+function finalizarCompra(){ //Comprobamos que los campos requeridos no esten vacios, y de ser asi permite completar la compra.
     
     let nombre = document.getElementById("validationCustom01").value;
     let pais = document.getElementById("validationCustom02").value;
@@ -213,19 +213,19 @@ function finalizarCompra(){
     let pago = document.getElementById("metodoDePagoFinal").innerHTML;
     let envio = document.getElementById("tipoEnvio").innerHTML;
 
-    if (nombre != "" && pais != "" && calle != "" && esquina != "" && cantidades != "" 
+    if (nombre != "" && pais != "" && calle != "" && esquina != "" && cantidades != 0 
     && pago != "" && envio != ""){
         Swal.fire(
             'Compra realizada con exito',
             '--',
             'success'
-          )
+        )
     }else{
         Swal.fire(
             'Faltan datos',
             '--',
             'error'
-          )
+        )
     }
 }
 
